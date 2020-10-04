@@ -1,5 +1,6 @@
 // Dependencies
 var express = require("express");
+var path = require("path");
 
 // Express Configuration
 // Tells node that we are creating an "express" server
