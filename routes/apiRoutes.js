@@ -32,8 +32,19 @@ module.exports = function(app) {
     })
 
     app.delete("/api/notes/:id", function(req, res) {
-        var id = (req.params.id);
-        //console.log(id)
-        res.json(id)
+        let id = (req.params.id);
+        console.log('dbdata');
+        console.log(dbData);
+
+        let deletedData = dbData.filter(element => element.id !==id);
+        console.log("deletedData");
+        console.log(deletedData);
+        fs.writeFile("./db/db.json", JSON.stringify(deletedData), (error) => {
+            if (error) throw error;
+            else Location.reload();
+        });
+         return res.json(deletedData);
+        //  Location.reload();
+       
     })
 }

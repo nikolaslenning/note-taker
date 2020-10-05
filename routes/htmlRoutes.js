@@ -4,7 +4,7 @@ var path = require("path");
 
 // routing
 module.exports = function (app) {
-    
+    // https://stackoverflow.com/questions/34105183/uncaught-syntaxerror-unexpected-token-in-nodejs
     app.use(express.static('public'));
 
     app.get("/notes", function (req, res) {
