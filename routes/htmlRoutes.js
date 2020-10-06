@@ -5,6 +5,7 @@ var path = require("path");
 // routing
 module.exports = function (app) {
     // https://stackoverflow.com/questions/34105183/uncaught-syntaxerror-unexpected-token-in-nodejs
+    // serving static files - another exapmple - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
     app.use(express.static('public'));
 
     app.get("/notes", function (req, res) {
