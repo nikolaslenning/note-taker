@@ -35,6 +35,6 @@ module.exports = function (app) {
             if (error) throw error;
             else Location.reload();
         });
-        res.json(deletedData);       
+        return res.json(deletedData);       
     })
 }
