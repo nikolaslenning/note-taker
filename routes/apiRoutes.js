@@ -39,7 +39,7 @@ module.exports = function (app) {
             if (error) {
                 return console.log("Error:" + error);
             }
-            return data;
+            console.log(data);
         })
         return res.json(deletedData);       
     })
