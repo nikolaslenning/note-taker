@@ -12,7 +12,7 @@ module.exports = function (app) {
         return res.sendFile(path.join(__dirname, "../public/notes.html"));
     });
     // if no matching route is found, defaut to index
-    app.get("*", function(req, res) {
+    app.get("/", function(req, res) {
         return res.sendFile(path.join(__dirname, "../public/index.html"));
       });
 }
