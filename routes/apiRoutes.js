@@ -33,7 +33,7 @@ module.exports = function (app) {
                 
         fs.writeFile("./db/db.json", JSON.stringify(deletedData), (error) => {
             if (error) throw error;
-            else Location.reload();
+            //else Location.reload();
         });
         return res.json(deletedData);       
     })
