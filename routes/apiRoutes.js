@@ -35,12 +35,7 @@ module.exports = function (app) {
             if (error) throw error;
             //else Location.reload();
         });
-        fs.readFile('./db/db.json', function (error, data) {
-            if (error) {
-                return console.log("Error:" + error);
-            }
-            console.log(data);
-        })
+        
         return res.json(deletedData);       
     })
 }
