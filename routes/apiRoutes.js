@@ -38,4 +38,3 @@ module.exports = function (app) {
         return res.json(deletedData);       
     })
 }
-//1.use date for id Date.now()
