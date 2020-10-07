@@ -13,6 +13,6 @@ module.exports = function (app) {
     });
     // if no matching route is found, defaut to index
     app.get("/", function(req, res) {
-         res.sendFile(path.join(__dirname, "../public/index.html"));
+         res.sendFile(path.join(__dirname, "public/index.html"));
       });
 }
