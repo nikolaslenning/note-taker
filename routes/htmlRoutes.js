@@ -9,10 +9,10 @@ module.exports = function (app) {
     app.use(express.static('public'));
 
     app.get("/notes", function (req, res) {
-         res.json(path.join(__dirname, "public/notes.html"));
+         res.sendFile(path.join(__dirname, "../public/notes.html"));
     });
     // if no matching route is found, defaut to index
     app.get("/", function(req, res) {
-         res.json(path.join(__dirname, "public/index.html"));
+         res.sendFile(path.join(__dirname, "../public/index.html"));
       });
 }
