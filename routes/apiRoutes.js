@@ -31,10 +31,8 @@ module.exports = function (app) {
         let id = (req.params.id);   
         let deletedData = dbData.filter(element => element.id != id);
                 
-        fs.writeFile("./db/db.json", JSON.stringify(deletedData), (error) => {
-            if (error) throw error;
+        fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));
             //else Location.reload();
-        });
         return res.json(deletedData);       
     })
 }
