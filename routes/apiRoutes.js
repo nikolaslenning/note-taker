@@ -30,8 +30,7 @@ module.exports = function (app) {
     app.delete("/api/notes/:id", function (req, res) {
         let id = (req.params.id);   
         let deletedData = dbData.filter(element => element.id != id);
-        console.log(id);
-        
+                
         fs.writeFile("./db/db.json", JSON.stringify(deletedData), (error) => {
             if (error) throw error;
             else Location.reload();
