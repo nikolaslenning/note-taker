@@ -18,6 +18,7 @@ module.exports = function (app) {
 
     app.post("/api/notes", function (req, res) {
         var newNote = req.body;
+        newNote.id = Date.now();
         dbData.push(newNote);
         
         fs.writeFile("./db/db.json", JSON.stringify(dbData), (error) => {
@@ -27,8 +28,9 @@ module.exports = function (app) {
     })
 
     app.delete("/api/notes/:id", function (req, res) {
-        let id = (req.params.id);       
-        let deletedData = dbData.filter(element => element.id !== id);
+        let id = (req.params.id);   
+        let deletedData = dbData.filter(element => element.id != id);
+        console.log(id);
         
         fs.writeFile("./db/db.json", JSON.stringify(deletedData), (error) => {
             if (error) throw error;
@@ -37,3 +39,4 @@ module.exports = function (app) {
         return res.json(deletedData);       
     })
 }
+//1.use date for id Date.now()
