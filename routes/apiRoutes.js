@@ -30,9 +30,9 @@ module.exports = function (app) {
     app.delete("/api/notes/:id", function (req, res) {
         let id = (req.params.id);   
         let deletedData = dbData.filter(element => element.id != id);
-                
+        console.log(deletedData);
         fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));
             //else Location.reload();
-        return res.json(deletedData);       
+        res.json(deletedData);       
     })
 }
