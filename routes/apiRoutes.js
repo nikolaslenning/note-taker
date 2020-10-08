@@ -1,7 +1,7 @@
 //  Data Source
 const fs = require('fs');
 function dbData() {
-    return JSON.parse(fs.readFileSync("../db/db.json"))
+    return JSON.parse(fs.readFileSync("./db/db.json"))
 }
 //var dbData() = require("../db/db.json");
 
@@ -22,9 +22,10 @@ module.exports = function (app) {
     app.post("/api/notes", function (req, res) {
         var newNote = req.body;
         newNote.id = Date.now();
-        dbData().push(newNote);
+        var data = dbData();
+        data.push(newNote);
 
-        fs.writeFile("./db/db.json", JSON.stringify(dbData()), (error) => {
+        fs.writeFile("./db/db.json", JSON.stringify(data), (error) => {
             if (error) throw error;
         });
         return res.json(newNote);
