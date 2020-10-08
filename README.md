@@ -11,8 +11,9 @@ Note taker is an application that can be used to write, save, and delete notes. 
 
 [Path](https://www.npmjs.com/package/path) module was used in working with directories and file paths. 
 
-A link to the [Note Taker]() application is deployed on Heroku. 
 
-A link to my [Note Taker](https://github.com/nikolaslenning/note-taker) is hosted on Github pages.
+A link to the [Note Taker](https://fast-scrubland-50994.herokuapp.com/) application is deployed on Heroku. 
+
+A link to my [Note Taker](https://github.com/nikolaslenning/note-taker) is hosted on Github.
 
 This application was authored by [Nikolas Lenning](https://github.com/nikolaslenning).

@@ -3,7 +3,6 @@ const fs = require('fs');
 function dbData() {
     return JSON.parse(fs.readFileSync("./db/db.json"))
 }
-//var dbData() = require("../db/db.json");
 
 // Routing
 module.exports = function (app) {
@@ -21,8 +20,9 @@ module.exports = function (app) {
 
     app.post("/api/notes", function (req, res) {
         var newNote = req.body;
-        newNote.id = Date.now();
         var data = dbData();
+
+        newNote.id = Date.now();
         data.push(newNote);
 
         fs.writeFile("./db/db.json", JSON.stringify(data), (error) => {
@@ -34,22 +34,8 @@ module.exports = function (app) {
     app.delete("/api/notes/:id", function (req, res) {
         let id = (req.params.id);
         let deletedData = dbData().filter(element => element.id != id);
-        console.log(deletedData);
-        fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));
-        //else Location.reload();
+        
+        fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));        
         res.json(deletedData);
     })
-
-
-    // app.delete("/api/notes/:id", function (req, res) {
-    //     console.log(req.params.id);
-    //     let id = (req.params.id);
-    //     console.log(id);
-    //     let deleteData = dbdata.filter(element => element.id != id);
-    //     console.log(deleteData);
-    //     fs.writeFileSync("./db/db.json", JSON.stringify(deleteData));
-    //     res.json(deleteData);
-    // });
-
-
 }
