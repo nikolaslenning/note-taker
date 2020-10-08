@@ -20,19 +20,32 @@ module.exports = function (app) {
         var newNote = req.body;
         newNote.id = Date.now();
         dbData.push(newNote);
-        
+
         fs.writeFile("./db/db.json", JSON.stringify(dbData), (error) => {
             if (error) throw error;
         });
         return res.json(newNote);
     })
 
+    // app.delete("/api/notes/:id", function (req, res) {
+    //     let id = (req.params.id);
+    //     let deletedData = dbData.filter(element => element.id != id);
+    //     console.log(deletedData);
+    //     fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));
+    //     //else Location.reload();
+    //     res.json(deletedData);
+    // })
+
+
     app.delete("/api/notes/:id", function (req, res) {
-        let id = (req.params.id);   
-        let deletedData = dbData.filter(element => element.id != id);
-        console.log(deletedData);
-        fs.writeFileSync("./db/db.json", JSON.stringify(deletedData));
-            //else Location.reload();
-        res.json(deletedData);       
-    })
+        console.log(req.params.id);
+        let id = (req.params.id);
+        console.log(id);
+        let deleteData = db.filter(element => element.id != id);
+        console.log(deleteData);
+        fs.writeFileSync("./db/db.json", JSON.stringify(deleteData));
+        res.json(deleteData);
+    });
+
+
 }
