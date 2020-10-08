@@ -41,7 +41,7 @@ module.exports = function (app) {
         console.log(req.params.id);
         let id = (req.params.id);
         console.log(id);
-        let deleteData = db.filter(element => element.id != id);
+        let deleteData = dbdata.filter(element => element.id != id);
         console.log(deleteData);
         fs.writeFileSync("./db/db.json", JSON.stringify(deleteData));
         res.json(deleteData);
